@@ -35,8 +35,6 @@
         }
 
         .app-icon {
-            background-color: #4A484A;
-            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +45,6 @@
         }
 
         .app-icon:hover {
-            background-color: #6A6869;
             transform: scale(1.05);
         }
 
@@ -56,39 +53,33 @@
         }
 
         .app-icon img {
-            width: 60%;
-            height: 60%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .app-icon:hover img {
+            opacity: 0.85;
         }
 
         /* Placeholder styling for apps without icons */
+        .app-icon.placeholder {
+            background-color: #4A484A;
+            border-radius: 20px;
+        }
+
+        .app-icon.placeholder:hover {
+            background-color: #6A6869;
+        }
+
         .app-icon.placeholder::before {
             content: '';
             width: 50%;
             height: 50%;
             background-color: #8D898A;
             border-radius: 10px;
-        }
-
-        /* Specific app links */
-        .app-icon[data-app="carplay"] {
-            background-color: #007AFF;
-        }
-
-        .app-icon[data-app="youtube"] {
-            background-color: #FF0000;
-        }
-
-        .app-icon[data-app="rainwave"] {
-            background-color: #2E4057;
-        }
-
-        .app-icon[data-app="applemusic"] {
-            background-color: #FA243C;
-        }
-
-        .app-icon[data-app="plex"] {
-            background-color: #1f1f1f;
         }
     </style>
 </head>
