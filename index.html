@@ -20,6 +20,33 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(15, 16, 18, 0.4);
+            z-index: -1;
         }
 
         .app-grid {
@@ -42,10 +69,12 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
         .app-icon:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
         }
 
         .app-icon:active {
