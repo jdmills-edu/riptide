@@ -99,22 +99,19 @@
             border-radius: 10px;
         }
 
-        /* Fullscreen toggle button styling */
-        .app-icon.fullscreen-toggle {
+        /* Debug app styling */
+        .app-icon.debug-app {
             background-color: #294878;
             border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 48px;
+            text-decoration: none;
         }
 
-        .app-icon.fullscreen-toggle:hover {
+        .app-icon.debug-app:hover {
             background-color: #3a5a8a;
-        }
-
-        .app-icon.fullscreen-toggle svg {
-            width: 40%;
-            height: 40%;
         }
     </style>
 </head>
@@ -139,65 +136,9 @@
             <img src="assets/icons/apple_tv.png" alt="Apple TV">
         </a>
         <div class="app-icon placeholder" data-app="app7"></div>
-        <a href="#" class="app-icon fullscreen-toggle" onclick="toggleFullscreen(); return false;">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="fullscreen-icon" d="M7 2H2V7M17 2H22V7M7 22H2V17M17 22H22V17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path class="exit-fullscreen-icon" style="display: none;" d="M2 7H7V2M22 7H17V2M2 17H7V22M22 17H17V22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <a href="http://192.168.1.3" class="app-icon debug-app" data-app="debug">
+            🐛
         </a>
     </div>
-    
-    <script>
-        function toggleFullscreen() {
-            const elem = document.documentElement;
-            const fullscreenIcon = document.querySelector('.fullscreen-icon');
-            const exitFullscreenIcon = document.querySelector('.exit-fullscreen-icon');
-            
-            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                // Enter fullscreen
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) {
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) {
-                    elem.msRequestFullscreen();
-                }
-                
-                // Switch icons
-                fullscreenIcon.style.display = 'none';
-                exitFullscreenIcon.style.display = 'block';
-            } else {
-                // Exit fullscreen
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-                
-                // Switch icons
-                fullscreenIcon.style.display = 'block';
-                exitFullscreenIcon.style.display = 'none';
-            }
-        }
-        
-        // Listen for fullscreen changes to update icon
-        document.addEventListener('fullscreenchange', updateFullscreenIcon);
-        document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
-        
-        function updateFullscreenIcon() {
-            const fullscreenIcon = document.querySelector('.fullscreen-icon');
-            const exitFullscreenIcon = document.querySelector('.exit-fullscreen-icon');
-            
-            if (document.fullscreenElement || document.webkitFullscreenElement) {
-                fullscreenIcon.style.display = 'none';
-                exitFullscreenIcon.style.display = 'block';
-            } else {
-                fullscreenIcon.style.display = 'block';
-                exitFullscreenIcon.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
